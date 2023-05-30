@@ -9,3 +9,15 @@
 .section {
   @apply mt-8 mb-16;
 }
+
+h1 {
+  @apply text-3xl font-semibold;
+}
+
+h2 {
+  @apply text-2xl font-semibold;
+}
+
+h3 {
+  @apply text-xl font-semibold;
+}
