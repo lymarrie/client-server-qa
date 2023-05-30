@@ -119,7 +119,6 @@ const Location: Template<TemplateRenderProps> = ({
     <>
       <PageLayout>
         <Banner name={name} address={address} />
-        <div className="centered-container">
           <div className="section space-y-5">
             <h1>Material UI Button</h1>
             <div className="flex space-x-5 items-center">
