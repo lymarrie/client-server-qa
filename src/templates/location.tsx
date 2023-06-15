@@ -27,7 +27,7 @@ export const config: TemplateConfig = {
   stream: {
     $id: "location-stream",
     filter: {
-      entityTypes: ["location"],
+      entityIds: ["location1"],
     },
     fields: [
       "id",
@@ -69,32 +69,32 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
  * will be used to generate the inner contents of the HTML document's <head> tag.
  * This can include the title, meta tags, script tags, etc.
  */
-// export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
-//   document,
-// }): HeadConfig => {
-//   return {
-//     title: document.name,
-//     charset: "UTF-8",
-//     viewport: "width=device-width, initial-scale=1",
-//     tags: [
-//       {
-//         type: "meta",
-//         attributes: {
-//           name: "description",
-//           content: document.description,
-//         },
-//       },
-//       {
-//         type: "link",
-//         attributes: {
-//           rel: "icon",
-//           type: "image/x-icon",
-//           href: Favicon,
-//         },
-//       },
-//     ],
-//   };
-// };
+export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
+  document,
+}): HeadConfig => {
+  return {
+    title: document.name,
+    charset: "UTF-8",
+    viewport: "width=device-width, initial-scale=1",
+    tags: [
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: document.description,
+        },
+      },
+      {
+        type: "link",
+        attributes: {
+          rel: "icon",
+          type: "image/x-icon",
+          href: Favicon,
+        },
+      },
+    ],
+  };
+};
 
 
 const Location: Template<TemplateRenderProps> = ({
@@ -113,21 +113,15 @@ const Location: Template<TemplateRenderProps> = ({
 
   const [count, setCount] = React.useState(0);
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-  console.log(count)
 
   return (
     <>
       <PageLayout>
         <Banner name={name} address={address} />
+        <div className="centered-container">
           <div className="section space-y-5">
             <h1>Material UI Button</h1>
-            <div className="flex space-x-5 items-center">
-              <Button variant="outlined" color="error">Hello World</Button>
-              <div className="space-x-2">
-                <button className="font-semibold" onClick={() => setCount(c => c + 1)}>Current count:</button>
-                <span>{count}</span>
-              </div>
-            </div>
+            <Button variant="outlined" color="error" onClick={() => setCount(c => c + 1)}>Current Count: <span className="pl-2 font-semibold">{count}</span></Button>
             <Checkbox {...label} defaultChecked />
           </div>
           <div className="grid gap-x-10 gap-y-10 md:grid-cols-2">
@@ -135,7 +129,6 @@ const Location: Template<TemplateRenderProps> = ({
             {hours && <Hours title={"Restaurant Hours"} hours={hours} />}
             {description && <About name={name} description={description} />}
           </div>
-
         </div>
       </PageLayout>
       {/* This component displays a link to the entity that represents the given page in the Knowledge Graph*/}

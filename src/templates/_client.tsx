@@ -10,6 +10,7 @@ export { render };
 
 const render = async (pageContext: PageContext<any>) => {
   const { Page, pageProps } = pageContext;
+  console.log(pageProps);
 
   ReactDOM.hydrate(
     <CacheProvider value={cache}>

@@ -14,13 +14,11 @@ import {
   TemplateProps,
   TemplateRenderProps,
 } from "@yext/pages";
-import Favicon from "../assets/images/yext-favicon.ico";
 import PageLayout from "../components/PageLayout";
 import Button from "@mui/material/Button";
-import Checkbox from '@mui/material/Checkbox';
 
 export const config: TemplateConfig = {
-  name: "index",
+  name: "Home Page",
 };
 
 
@@ -55,7 +53,7 @@ export const getPath: GetPath<TemplateRenderProps> = () => {
 //     ],
 //   };
 // };
-
+ 
 
 const Index: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
@@ -73,15 +71,13 @@ const Index: Template<TemplateRenderProps> = ({
         <PageLayout>
             <div className="centered-container">
                 <div className="section space-y-5">
-                    <h1>Home Page</h1>
+                    <h1 className="text-center">Home Page</h1>
+                </div>
+                <div className="section">
+                    <h2>Material UI Button</h2>
                     <div className="flex space-x-5 items-center">
-                        <Button variant="outlined" color="error">Hello World</Button>
-                        <div className="space-x-2">
-                            <button className="font-semibold" onClick={() => setCount(c => c + 1)}>Current count:</button>
-                            <span>{count}</span>
-                        </div>
+                        <Button variant="outlined" color="error" onClick={() => setCount(c => c + 1)}>Current Count: <span className="pl-2 font-semibold">{count}</span></Button>
                     </div>
-                    <Checkbox {...label} defaultChecked />
                 </div>
             </div>
         </PageLayout>

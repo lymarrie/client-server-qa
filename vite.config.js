@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import yextSSG from "@yext/pages/vite-plugin";
-import { nodePolyfills } from 'vite-plugin-node-polyfills';
+// import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 export default defineConfig({
   plugins: [
@@ -9,6 +9,6 @@ export default defineConfig({
       // jsxImportSource: '@emotion/react',
     }), 
     yextSSG(),
-    nodePolyfills(),
+    // nodePolyfills(),
   ],
 });
